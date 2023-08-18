@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fb
+  annotations:
+    originImageName: fireboomapi/fireboom_server:latest
+    deploy.cloud.sealos.io/minReplicas: '1'
+    deploy.cloud.sealos.io/maxReplicas: '1'
+  labels:
+    cloud.sealos.io/app-deploy-manager: fb
+    app: fb
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: fb
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 0
+  template:
+    metadata:
+      labels:
+        app: fb
+        restartTime: '20230815092212'
+    spec:
+      containers:
+        - name: fb
+          image: fireboomapi/fireboom_server:latest
+          env: []
+          resources:
+            requests:
+              cpu: 200m
+              memory: 102Mi
+            limits:
+              cpu: 2000m
+              memory: 1024Mi
+          command: []
+          args:
+            - dev
+          ports:
+            - containerPort: 9123
+            - containerPort: 9991
+          imagePullPolicy: Always
+          volumeMounts: []
+      volumes: []
