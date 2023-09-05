@@ -1,3 +1,5 @@
+仓库地址：ccamel/go-graphql-subscription-example: ☝️ go-graphql subscription over Kafka/Redis/NSQ example (github.com)
+
 # 1.启动Kafka服务器
 
 首先，必须启动kafka。请参阅[官方文档](https://kafka.apache.org/quickstart)了解更多信息。
