@@ -1,0 +1,12 @@
+[Unit]
+Description=Casdoor server
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/fb-oidc/
+ExecStart=/home/fb-oidc/casdoor_service
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
