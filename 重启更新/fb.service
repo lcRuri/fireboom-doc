@@ -1,0 +1,14 @@
+[Unit]
+Description=Fireboom server
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/fb-admin/backend
+ExecStart=/home/fb-admin/backend/fireboom dev
+Restart=on-failure
+Environment=XDG_CACHE_HOME=/root/.cache
+
+
+[Install]
+WantedBy=multi-user.target

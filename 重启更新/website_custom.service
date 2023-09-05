@@ -1,0 +1,12 @@
+[Unit]
+Description=FireboomWebsite custom-go
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/fb-website/backend/custom-go
+ExecStart=/home/fb-website/backend/custom-go/custom-go
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
